@@ -30,7 +30,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'last_name' => 'required|max:255',
-            'mail' => 'required|email|unique:users', // Cambia "unique:users" por tu tabla correcta si es necesario
+            'mail' => 'required|email|unique:user',
             'phone' => 'required|digits:10',
             'password' => 'required|min:8'
         ]);
@@ -125,7 +125,7 @@ public function update(Request $request, $id)
     $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
         'last_name' => 'required|max:255',
-        'mail' => 'required|email|unique:users,email,' . $id,
+        'mail' => 'required|email|unique:user',
         'phone' => 'required|digits:10',
         'password' => 'required'
     ]);
